@@ -49,10 +49,13 @@ if __name__ == "__main__":
 ## 4. Run the App with Gunicorn
 Use Gunicorn to run the app:
 
-```
+```bash
 gunicorn -w 2 -b 0.0.0.0:8000 app:app
 ```
 
 ### What this does:
 * ```-w 2```: Uses 2 worker processes.
 * ```-b 0.0.0.0:8000```: Runs on port 8000 and allows connections from any IP.
+
+## 5. Test the Server
+Open a browser and go to ```http://<your-IP>:8000```
