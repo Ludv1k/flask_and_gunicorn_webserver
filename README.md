@@ -31,7 +31,7 @@ pip install flask gunicorn
 
 ## 3. Create a Flask 
 
-make a file called "app.py" and add this code:
+make a file called ```app.py``` and add this code:
 
 ```bash
 from flask import Flask
@@ -54,5 +54,5 @@ gunicorn -w 2 -b 0.0.0.0:8000 app:app
 ```
 
 ### What this does:
-> ```-w 2```: Uses 2 worker processes.
-> ```-b 0.0.0.0:8000```: Runs on port 8000 and allows connections from any IP.
+* ```-w 2```: Uses 2 worker processes.
+* ```-b 0.0.0.0:8000```: Runs on port 8000 and allows connections from any IP.
