@@ -10,7 +10,6 @@ This guide shows how to quickly set up a web server using Flask and Gunicorn.
 - `pip` (Python package manager) installed.
 
 ---
-<>
 ## 1. Set Up a Virtual Environment
 
 A virtual environment keeps your project's dependencies isolated.
@@ -81,4 +80,10 @@ WantedBy=multi-user.target
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable flaskapp
+```
+
+## Troubleshooting
+* Check logs for errors:
+```bash
+journalctl -u flaskapp
 ```
