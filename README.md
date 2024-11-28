@@ -59,3 +59,26 @@ gunicorn -w 2 -b 0.0.0.0:8000 app:app
 
 ## 5. Test the Server
 Open a browser and go to ```http://<your-IP>:8000```
+
+## 6. (Optional) Run as a Linux Service
+### 6.1. Create a Service File
+Make a file at ```/etc/systemd/system/flaskapp.service```:
+```bash
+[Unit]
+Description=Flask App
+After=network.target
+
+[Service]
+User=<your-username>
+WorkingDirectory=/path/to/your/project #Note: this is not an actual path, and you will need to write the actual path yourself.
+ExecStart=/path/to/your/project/venv/bin/gunicorn -w 2 -b 0.0.0.0:8000 app:app #Note: Again, this isn't an actual path.
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+### 6.2. Start the Service
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable flaskapp
+```
